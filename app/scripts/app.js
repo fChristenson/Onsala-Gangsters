@@ -6,7 +6,8 @@ angular.module('onsalaGangstersApp', [
   'ngSanitize',
   'ngRoute',
   'ui.router',
-  'user'
+  'user',
+  'shop'
 ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
@@ -35,6 +36,12 @@ angular.module('onsalaGangstersApp', [
         templateUrl: 'modules/user/view/user.skills.html',
         controller: 'SkillsCtrl'
 
+      })
+      .state('shop', {
+        url: '/shop',
+        templateUrl: 'modules/shop/view/shop.html',
+        controller: 'ShopCtrl'
+          
       })
       .state('toplist', {
         url: '/toplist',
