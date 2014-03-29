@@ -5,33 +5,34 @@ angular.module('onsalaGangstersApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.router'
+  'ui.router',
+  'user'
 ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('main', {
+      .state('user', {
         url: '/',
-        templateUrl: 'views/main.html',
+        templateUrl: 'modules/user/view/user.html',
         controller: 'MainCtrl'
         
       })
-      .state('main.timeline', {
+      .state('user.timeline', {
         url: '/timeline',
-        templateUrl: 'views/main.timeline.html',
+        templateUrl: 'modules/user/view/user.timeline.html',
         controller: 'TimelineCtrl'
 
       })
-      .state('main.profile', {
+      .state('user.profile', {
         url: '/profile',
-        templateUrl: 'views/main.profile.html',
+        templateUrl: 'modules/user/view/user.profile.html',
         controller: 'ProfileCtrl'
 
       })
-      .state('main.skills', {
+      .state('user.skills', {
         url: '/skills',
-        templateUrl: 'views/main.skills.html',
+        templateUrl: 'modules/user/view/user.skills.html',
         controller: 'SkillsCtrl'
 
       })
@@ -44,7 +45,16 @@ angular.module('onsalaGangstersApp', [
       .state('faq', {
         url: '/faq',
         templateUrl: 'views/faq.html',
-        controller: 'FaqController'
 
       });
-  });
+  })
+
+.controller('ToplistCtrl', ['$scope', function($scope){
+
+  $scope.dataset = [];
+ 
+  for (var i = 6 - 1; i >= 0; --i) {
+    $scope.dataset.push( {name:'foo', class:'gangbanger', respect:'10'});
+  }
+
+}]);
