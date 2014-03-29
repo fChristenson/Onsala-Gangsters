@@ -29,7 +29,7 @@ angular.module('user',[])
 
 .controller('ProfileCtrl', ['$scope', function($scope){
     
-    $scope.user = {img: '/images/user_big.png', name: 'Foo Bar', class: 'Emo', message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, optio, vero, soluta laborum vel nobis provident debitis assumenda necessitatibus dolorum culpa quod laudantium saepe. Laudantium magni amet deleniti repellat dolores?'};
+    $scope.user = {img: 'modules/user/view/assets/image/user_big.png', name: 'Foo Bar', class: 'Emo', message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, optio, vero, soluta laborum vel nobis provident debitis assumenda necessitatibus dolorum culpa quod laudantium saepe. Laudantium magni amet deleniti repellat dolores?'};
  
   }])
 
@@ -44,7 +44,7 @@ angular.module('user',[])
 
 .controller('TimelineCtrl', ['$scope', function($scope){
 
-  $scope.imageSource = 'images/user.jpg';
+  $scope.imageSource = 'modules/user/view/assets/image/user.jpg';
   $scope.dataset = [];
 
   for (var i = 6 - 1; i >= 0; --i) {
