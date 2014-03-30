@@ -43,6 +43,36 @@ angular.module('onsalaGangstersApp', [
         controller: 'ShopCtrl'
           
       })
+      .state('shop.head', {
+        url: '/headwear',
+        templateUrl: 'modules/shop/view/shop.itemtable.html',
+        controller: 'ShopCtrl'
+          
+      })
+      .state('shop.chest', {
+        url: '/chestguard',
+        templateUrl: 'modules/shop/view/shop.itemtable.html',
+        controller: 'ShopCtrl'
+          
+      })
+      .state('shop.legs', {
+        url: '/legwear',
+        templateUrl: 'modules/shop/view/shop.itemtable.html',
+        controller: 'ShopCtrl'
+          
+      })
+      .state('shop.feet', {
+        url: '/footwear',
+        templateUrl: 'modules/shop/view/shop.itemtable.html',
+        controller: 'ShopCtrl'
+          
+      })
+      .state('shop.weapon', {
+        url: '/weapon',
+        templateUrl: 'modules/shop/view/shop.itemtable.html',
+        controller: 'ShopCtrl'
+          
+      })
       .state('toplist', {
         url: '/toplist',
         templateUrl: 'views/toplist.html',

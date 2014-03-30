@@ -1,1 +1,20 @@
-<div class="well">Shop</div>
+<div>
+    <ul class="nav nav-tabs">
+        <li ng-class="headIsActive ? 'active' : ''">
+            <a ui-sref="shop.head" ng-click="showHead()">Headwear</a>
+        </li>
+        <li ng-class="chestIsActive ? 'active' : ''">
+            <a ui-sref="shop.chest" ng-click="showChest()">Chestguard</a>
+        </li>
+        <li ng-class="legsIsActive ? 'active' : ''">
+            <a ui-sref="shop.legs" ng-click="showLegs()">Legwear</a>
+        </li>
+        <li ng-class="feetIsActive ? 'active' : ''">
+            <a ui-sref="shop.feet" ng-click="showFeet()">Footwear</a>
+        </li>
+        <li ng-class="weaponIsActive ? 'active' : ''">
+            <a ui-sref="shop.weapon" ng-click="showWeapon()">Weapon</a>
+        </li>
+    </ul>
+</div>
+<div ui-view></div>
