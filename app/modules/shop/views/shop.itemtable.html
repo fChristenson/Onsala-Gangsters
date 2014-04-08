@@ -1,0 +1,18 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Stats</th>
+            <th>Cost</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in dataset">
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.stats}}</td>
+                <td>{{item.cost}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
