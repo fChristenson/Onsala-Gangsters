@@ -1,54 +1,33 @@
 'use strict';
 
-angular.module('user',[])
+angular.module('user',['ui.router'])
 
-.controller('MainCtrl', ['$scope', function ($scope) {
-    $scope.timelineIsActive = false;
-    $scope.profileIsActive = false;
-    $scope.shopIspActive = false;
+.config(function ($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/');
 
-    $scope.showTimeline = function(){
-        $scope.timelineIsActive = true;
-        $scope.profileIsActive = false;
-        $scope.shopIsActive = false;
-      };
+  $stateProvider
+    .state('user', {
+      url: '/',
+      templateUrl: 'modules/user/view/user.html',
+      controller: 'MainCtrl'
+      
+    })
+    .state('user.timeline', {
+      url: '/timeline',
+      templateUrl: 'modules/user/view/user.timeline.html',
+      controller: 'TimelineCtrl'
 
-    $scope.showProfile = function(){
-        $scope.profileIsActive = true;
-        $scope.timelineIsActive = false;
-        $scope.shopIsActive = false;
-      };
+    })
+    .state('user.profile', {
+      url: '/profile',
+      templateUrl: 'modules/user/view/user.profile.html',
+      controller: 'ProfileCtrl'
 
-    $scope.showShop = function(){
-        $scope.shopIsActive = true;
-        $scope.timelineIsActive = false;
-        $scope.profileIsActive = false;
-      };
+    })
+    .state('user.skills', {
+      url: '/skills',
+      templateUrl: 'modules/user/view/user.skills.html',
+      controller: 'SkillsCtrl'
 
-  }])
-
-.controller('ProfileCtrl', ['$scope', function($scope){
-    
-    $scope.user = {img: 'modules/user/view/assets/image/user_big.png', name: 'Foo Bar', class: 'Emo', message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, optio, vero, soluta laborum vel nobis provident debitis assumenda necessitatibus dolorum culpa quod laudantium saepe. Laudantium magni amet deleniti repellat dolores?'};
- 
-  }])
-
-.controller('SkillsCtrl', ['$scope', function($scope){
-    $scope.dataset = [];
-
-    for (var i = 6 - 1; i >= 0; --i) {
-      $scope.dataset.push({name: 'Depressing Poem', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', level: 2, time: '10h'});
-    }
-
-  }])
-
-.controller('TimelineCtrl', ['$scope', function($scope){
-
-  $scope.imageSource = 'modules/user/view/assets/image/user.jpg';
-  $scope.dataset = [];
-
-  for (var i = 6 - 1; i >= 0; --i) {
-    $scope.dataset.push({name:'foo', time:'2m ago', message:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, error, nemo, alias quo repellendus nostrum consequatur repellat possimus modi ipsam minus facere tenetur id voluptate ut doloribus iste ratione fugiat.'});
-  }
-
-}]);
+    });
+});

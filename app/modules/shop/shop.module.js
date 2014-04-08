@@ -1,56 +1,44 @@
 'use strict';
-angular.module('shop', [])
+angular.module('shop', ['ui.router'])
 
-.controller('ShopCtrl', ['$scope', function($scope){
-    $scope.headIsActive = false;
-    $scope.chestIsActive = false;
-    $scope.legsIsActive = false;
-    $scope.feetIsActive = false;
-    $scope.weaponIsActive = false;
+.config(function ($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/');
 
-    $scope.dataset = [];
-
-    for (var i = 6 - 1; i >= 0; i--) {
-      $scope.dataset.push({name: 'Item', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', stats: '+1 power, +2 health', cost: 10});
-    }
-
-    $scope.showHead = function(){
-        $scope.headIsActive = true;
-        $scope.chestIsActive = false;
-        $scope.legsIsActive = false;
-        $scope.feetIsActive = false;
-        $scope.weaponIsActive = false;
-      };
-
-    $scope.showChest = function(){
-        $scope.headIsActive = false;
-        $scope.chestIsActive = true;
-        $scope.legsIsActive = false;
-        $scope.feetIsActive = false;
-        $scope.weaponIsActive = false;
-      };
-
-    $scope.showLegs = function(){
-        $scope.headIsActive = false;
-        $scope.chestIsActive = false;
-        $scope.legsIsActive = true;
-        $scope.feetIsActive = false;
-        $scope.weaponIsActive = false;
-      };
-
-    $scope.showFeet = function(){
-        $scope.headIsActive = false;
-        $scope.chestIsActive = false;
-        $scope.legsIsActive = false;
-        $scope.feetIsActive = true;
-        $scope.weaponIsActive = false;
-      };
-
-    $scope.showWeapon = function(){
-          $scope.headIsActive = false;
-          $scope.chestIsActive = false;
-          $scope.legsIsActive = false;
-          $scope.feetIsActive = false;
-          $scope.weaponIsActive = true;
-        };
-  }]);
+  $stateProvider
+    .state('shop', {
+      url: '/shop',
+      templateUrl: 'modules/shop/view/shop.html',
+      controller: 'ShopCtrl'
+        
+    })
+    .state('shop.head', {
+      url: '/headwear',
+      templateUrl: 'modules/shop/view/shop.itemtable.html',
+      controller: 'ShopCtrl'
+        
+    })
+    .state('shop.chest', {
+      url: '/chestguard',
+      templateUrl: 'modules/shop/view/shop.itemtable.html',
+      controller: 'ShopCtrl'
+        
+    })
+    .state('shop.legs', {
+      url: '/legwear',
+      templateUrl: 'modules/shop/view/shop.itemtable.html',
+      controller: 'ShopCtrl'
+        
+    })
+    .state('shop.feet', {
+      url: '/footwear',
+      templateUrl: 'modules/shop/view/shop.itemtable.html',
+      controller: 'ShopCtrl'
+        
+    })
+    .state('shop.weapon', {
+      url: '/weapon',
+      templateUrl: 'modules/shop/view/shop.itemtable.html',
+      controller: 'ShopCtrl'
+        
+    });
+});
