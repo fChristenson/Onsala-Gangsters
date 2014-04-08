@@ -5,28 +5,30 @@ angular.module('user',['ui.router'])
 .config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
+  var path = 'modules/user/views/';
+
   $stateProvider
     .state('user', {
       url: '/',
-      templateUrl: 'modules/user/view/user.html',
+      templateUrl: path + 'user.html',
       controller: 'MainCtrl'
       
     })
     .state('user.timeline', {
       url: '/timeline',
-      templateUrl: 'modules/user/view/user.timeline.html',
+      templateUrl: path + 'user.timeline.html',
       controller: 'TimelineCtrl'
 
     })
     .state('user.profile', {
       url: '/profile',
-      templateUrl: 'modules/user/view/user.profile.html',
+      templateUrl: path + 'user.profile.html',
       controller: 'ProfileCtrl'
 
     })
     .state('user.skills', {
       url: '/skills',
-      templateUrl: 'modules/user/view/user.skills.html',
+      templateUrl: path + 'user.skills.html',
       controller: 'SkillsCtrl'
 
     });

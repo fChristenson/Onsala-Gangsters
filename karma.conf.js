@@ -22,9 +22,9 @@ module.exports = function(config) {
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/angular-ui-router/release/angular-ui-router.min.js',
       'app/scripts/app.js',
-      'app/scripts/controller/*.js',
+      'app/scripts/controllers/*.js',
       'app/modules/*/*.js',
-      'app/modules/*/controller/*.js',
+      'app/modules/*/controllers/*.js',
       'test/spec/*.js'
     ],
 
